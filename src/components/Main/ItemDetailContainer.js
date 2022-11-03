@@ -3,30 +3,40 @@ import Productos from "../../MockProductos/Productos";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = ()=>{
-    const [item, setItem] = useState({})
-    const {id} = useParams();
-    useEffect(()=>{
-       const detalleProducto = ()=> {
-        return new Promise((res, rej)=>{
-            const detalle = Productos.find((producto)=> producto.id === Number(id))
-            setTimeout(() => {
-                setItem(detalle);
-            }, 1500);
-        })};
-        detalleProducto().
-        then((res)=>{
-            console.log(res);
-        })
-    },[id])
+const ItemDetailContainer = () => {
+  const [item, setItem] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  useEffect(() => {
+    const detalleProducto = () => {
+      return new Promise((res, rej) => {
+        const detalle = Productos.find(
+          (producto) => producto.id === Number(id)
+        );
+        setTimeout(() => {
+          res(detalle);
+        }, 1200);
+      });
+    };
+    detalleProducto()
+      .then((res) => {
+        setItem(res);
+      })
+      .catch((error) => console.log(error))
+      .finally(()=>setLoading(false));
 
-return(
-    <div>
+      return()=>setLoading(true);
+  }, [id]);
 
-        <ItemDetail item={item} /*  id={producto.id} gama={producto.gama} marca={producto.marca} modelo={producto.modelo} precio={producto.precio} img={producto.img} */ />
-
-    </div>
-    )
+if(loading){
+    return <h2 className="loading">Cargando...</h2>
 }
+
+  return (
+    <div>
+      <ItemDetail item={item} />
+    </div>
+  );
+};
 
 export default ItemDetailContainer;

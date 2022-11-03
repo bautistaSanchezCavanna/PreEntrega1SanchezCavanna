@@ -1,32 +1,56 @@
 import { useEffect, useState } from "react";
-import Productos from "../../MockProductos/Productos";
 import ItemList from "./ItemList";
-import {useParams} from "react-router-dom";
-function ItemListContainer(){
-    const [items, setItems] = useState([]);
-    const {categoryName} = useParams();
-    
+import { useParams } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { dataBase } from "../../Services/firebaseConfig";
 
-    useEffect(()=>{
-        const traerProductos =()=>{
-            return new Promise((resolve, reject) => {
-                const filtrarCategorias = Productos.filter((producto)=> producto.gama === categoryName)
-                setTimeout(() => {
-                    resolve(categoryName ? filtrarCategorias : Productos)
-                }, 1500);
-            });
-        };
-        traerProductos().then((resolve)=>{
-            setItems(resolve);
-        }).catch((error)=>{
-            console.log(error);
-        });
-    },[categoryName])
-    
-    return(
-        <div className="itemListContainer">
-            <ItemList items={items}/>
-        </div>
-    )
+function ItemListContainer() {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { categoryName } = useParams();
+
+  useEffect(() => {
+    const collectionProd = collection(dataBase, "productos");
+
+    getDocs(collectionProd)
+    .then((res) => {
+      const products = res.docs.map((prod) => {
+        return { id: prod.id, ...prod.data() };
+      });
+      setItems(products);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(()=>setLoading(false));
+
+    return () => setLoading(true);
+  }, [categoryName]);
+
+  if (loading) {
+    return <h2 className="loading">Cargando...</h2>;
+  }
+
+  return (
+    <div className="itemListContainer">
+      <ItemList items={items} />
+    </div>
+  );
 }
 export default ItemListContainer;
+
+/* const traerProductos = () => {
+  return new Promise((resolve, reject) => {
+    const filtrarCategorias = Productos.filter(
+      (producto) => producto.gama === categoryName
+    );
+    setTimeout(() => {
+      resolve(categoryName ? filtrarCategorias : Productos);
+    }, 1200);
+  });
+};
+traerProductos()
+  .then((resolve) => {
+    setItems(resolve);
+  })
+   */

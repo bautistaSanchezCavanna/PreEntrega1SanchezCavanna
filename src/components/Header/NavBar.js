@@ -8,7 +8,7 @@ return(
         <div className="headerContainer">
             <Link to="/"  className="icono" ><Brand /></Link>
             <MenuItemList />
-            <Link to="/detalle"  style={{"color":"black"}} ><CartWidget /></Link>      
+            <Link to="/cart"  style={{"color":"black", "text-decoration":"none"}} ><CartWidget /></Link>      
        </div>
     );
 }

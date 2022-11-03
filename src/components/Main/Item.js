@@ -8,7 +8,7 @@ const Item = (props)=>{
                 <h3>Modelo: {props.modelo}</h3>
                 <h3>Precio: ${props.precio}</h3>
                 <h4>Gama: {props.gama}</h4>
-                <Link to={`/item/${props.id}`}><button className="btnDetalle">Ver detalle</button></Link>
+                <button className="btnDetalle"><Link to={`/item/${props.id}`} style={{"text-decoration":"none", "color":"black"}}>Ver detalle</Link></button>
             </div>
             <img className="cardImg" src={props.img} alt="" />
         </div>
