@@ -25,7 +25,7 @@ const ItemDetail = ({ item }) => {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum
           exercitationem consectetur, necessitatibus delectus fugiat fugit atque
           ducimus numquam placeat, cupiditate consequuntur repudiandae dolorum
-          nesciunt dicta aspernatur illum, nam laudantium accusantium!
+          nesciunt dicta aspernatur illum, niam laudantium accusantium!
         </p>
         {unidades === 0 ? (
           <ItemCount
