@@ -1,12 +1,12 @@
 .App {
   background-color: rgb(113, 113, 113);
+  width: 100%;
 }
 .headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(53, 53, 53);
-  width: 1200px;
   height: 150px;
   padding-left: 40px;
   padding-right: 40px;
@@ -39,12 +39,12 @@
   background-color: rgb(53, 53, 53);
   border-top: 3px red solid;
   position: static;
-  bottom:0px;
+  bottom: 0px;
   width: 100%;
 }
 
 .itemListContainer {
-  border-top: 1px rgba(129, 0, 0, 0.669) solid; 
+  border-top: 1px rgba(129, 0, 0, 0.669) solid;
 }
 
 .counterContainer {
@@ -75,7 +75,7 @@
   padding: 6px;
   border-radius: 13px;
   font-size: 17px;
-  border: solid 1px darkgrey
+  border: solid 1px darkgrey;
 }
 
 .itemList {
@@ -157,8 +157,9 @@
   margin-bottom: 8px;
 }
 
-.btnGoToCart{
-  width:fit-content;
+.btnGoTo {
+  width: fit-content;
+  text-decoration: none;
   height: fit-content;
   font-size: 22px;
   padding: 15px;
@@ -168,38 +169,39 @@
   border-radius: 16px;
 }
 
-.cartDetail{
+.cartDetail {
   display: flex;
   justify-content: space-between;
   height: 200px;
   border: #141414 solid 3px;
-  margin: 30px 50px ;
+  margin: 30px 50px;
   border-radius: 10px;
   gap: 30px;
   background-color: darkgrey;
 }
 
-.cartDetailInfo{
+.cartDetailInfo {
   display: flex;
   gap: 20px;
 }
 
-.cartInfoA{
+.cartInfoA {
   margin-right: 20px;
 }
 
-.cartInfoB{
+.cartInfoB {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 50px;
 }
 
-.cartDetail h3{
+.cartDetail h3 {
   display: flex;
   align-items: center;
 }
 
-.cartDetail img{
+.cartDetail img {
   object-fit: cover;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -207,24 +209,24 @@
   border-right: #141414 solid 3px;
 }
 
-.btnDeleteItem{
+.btnDeleteItem {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 40px;
 }
 
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   padding: 30vh;
 }
 
-.cartWidget span{
+.cartWidget span {
   font-size: 23px;
 }
 
-.cartVacio{
+.cartVacio {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,17 +234,39 @@
   gap: 40px;
 }
 
-.totalCart{
+.totalCart {
   display: flex;
   justify-content: space-around;
 }
 
-.totalCart button{
+.totalCart button {
   border-radius: 6px;
   padding: 12px;
   font-size: 16px;
   width: fit-content;
   height: fit-content;
   color: white;
-  background-color:rgb(192, 33, 33) ;
+  background-color: rgb(192, 33, 33);
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4% 0px 10% 0px;
+  gap: 20px;
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.btnEnviar {
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: larger;
 }

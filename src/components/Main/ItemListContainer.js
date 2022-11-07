@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { dataBase } from "../../Services/firebaseConfig";
 
 function ItemListContainer() {
@@ -11,18 +11,21 @@ function ItemListContainer() {
 
   useEffect(() => {
     const collectionProd = collection(dataBase, "productos");
+    const filtrado = categoryName
+      ? query(collectionProd, where("gama", "==", categoryName))
+      : collectionProd;
 
-    getDocs(collectionProd)
-    .then((res) => {
-      const products = res.docs.map((prod) => {
-        return { id: prod.id, ...prod.data() };
-      });
-      setItems(products);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .finally(()=>setLoading(false));
+    getDocs(filtrado)
+      .then((res) => {
+        const products = res.docs.map((prod) => {
+          return { id: prod.id, ...prod.data() };
+        });
+        setItems(products);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => setLoading(false));
 
     return () => setLoading(true);
   }, [categoryName]);
@@ -38,19 +41,3 @@ function ItemListContainer() {
   );
 }
 export default ItemListContainer;
-
-/* const traerProductos = () => {
-  return new Promise((resolve, reject) => {
-    const filtrarCategorias = Productos.filter(
-      (producto) => producto.gama === categoryName
-    );
-    setTimeout(() => {
-      resolve(categoryName ? filtrarCategorias : Productos);
-    }, 1200);
-  });
-};
-traerProductos()
-  .then((resolve) => {
-    setItems(resolve);
-  })
-   */

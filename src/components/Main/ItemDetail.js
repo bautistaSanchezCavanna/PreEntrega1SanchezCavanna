@@ -6,14 +6,12 @@ import { CartContext } from "../Context/CartContext";
 
 const ItemDetail = ({ item }) => {
   const [unidades, setUnidades] = useState(0);
-  const { cart, addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const cantidadElegida = (cantidad) => {
     setUnidades(cantidad);
     addToCart(item, cantidad);
-
   };
-
 
   return (
     <div className="itemDetail">
@@ -30,9 +28,21 @@ const ItemDetail = ({ item }) => {
           nesciunt dicta aspernatur illum, nam laudantium accusantium!
         </p>
         {unidades === 0 ? (
-          <ItemCount frase="Agregar al carrito" funcion={cantidadElegida} inicio={0} stock={item.stock} />
+          <ItemCount
+            frase="Agregar al carrito"
+            funcion={cantidadElegida}
+            inicio={0}
+            stock={item.stock}
+          />
         ) : (
-          <button className="btnGoToCart" ><Link to="/cart" style={{"text-decoration":"none", "color":"white"}}>Ir al carrito</Link></button>
+          <button className="btnGoTo">
+            <Link
+              to="/cart"
+              style={{ "text-decoration": "none", color: "white" }}
+            >
+              Ir al carrito
+            </Link>
+          </button>
         )}
       </div>
     </div>

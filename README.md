@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# E-Commerce Autos de lujo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto gira en torno a una App web que simula el funcionamiento de un E-Commerce, en este caso, de Autos de lujo. El usuario tiene la opción de recorrer la app y agregar productos a su carrito, simulando una compra.
 
-## Available Scripts
+### Inicio
 
-In the project directory, you can run:
+![](public/CapturaInicio.png)
 
-### `npm start`
+### Categorías
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![](public/CapturaCategoria.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Carrito
 
-### `npm test`
+![](public/CapturaCarrito.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Librerías utilizadas
 
-### `npm run build`
+- [Firebase](https://firebase.google.com/?hl=es-419&gclid=CjwKCAjwtp2bBhAGEiwAOZZTuFaxRrgo7rQfgeEN6zbhZ-QcMQpe6J8BD1kmqcGbYj4cvDMzpqndvBoCXcQQAvD_BwE&gclsrc=aw.ds)\
+  Se utilizó para generar una base de datos para los productos, crear un menú de navegación dinámico con las distintas categorías de los productos y generar ordenes de compra con un id de seguimiento.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React-router-dom](https://www.npmjs.com/package/react-router-dom)\
+  Esta librería permite agilizar y simplificar el entramado de las rutas en todo el proyecto.
+- [FontAwesome](https://fontawesome.com/icons)\
+  Librería con miles de íconos de todo tipo para utilizar en cualquier proyecto. Pueden utilizarse simplemente por estética (ícono de un carrito en el menú) y también para funcionalidades (reemplazando botones).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Funcionalidades del proyecto
 
-### `npm run eject`
+- Mostrar productos en el Inicio o en distintas secciones filtrando por categoría
+- Ver detalle de cada producto a través de un botón
+- Agregar y quitar productos en un carrito
+- Borrar el carrito entero
+- Finalización de la compra con un formulario que toma los datos del usuario y le brinda un id de seguimiento de la misma
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Correr el proyecto en local
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clonar el repositorio
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+git clone https://github.com/bautistaSanchezCavanna/ProyectoEcommerce-SanchezCavanna.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Abrirlo en un editor de código e instalar las dependencias
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Correr el proyecto en local. Se abrirá en el navegador como [http://localhost:3000](http://localhost:3000).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm start
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

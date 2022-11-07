@@ -4,13 +4,13 @@ import CartDetail from "./CartDetail";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, deleteAll } = useContext(CartContext);
+  const { cart, deleteAll, precioTotal } = useContext(CartContext);
 
   if (cart.length === 0) {
     return (
       <div className="cartVacio">
         <h2>No hay ningún producto en el carrito..</h2>
-        <button className="btnGoToCart">
+        <button className="btnGoTo">
           <Link to="/" style={{ "text-decoration": "none", color: "white" }}>
             Ver catálogo
           </Link>
@@ -31,12 +31,16 @@ const Cart = () => {
             precio={prod.precio}
             cantidad={prod.cantidad}
             img={prod.img}
+            subtotal={prod.precio * prod.cantidad}
           />
         );
       })}
       <div className="totalCart">
-        <h2>Total: $ </h2>
+        <h2>Total: ${precioTotal()} </h2>
         <button onClick={deleteAll}>Borrar carrito</button>
+        <Link to="/form" className="btnGoTo">
+          Finalizar compra
+        </Link>
       </div>
     </div>
   );
