@@ -34,7 +34,7 @@ const ItemCount = (props) => {
           -
         </button>
       </div>
-      <button onClick={add} className="btnAgregar">
+      <button disabled={num === inicial} onClick={add} className="btnAgregar">
         {frase}
       </button>
     </div>
